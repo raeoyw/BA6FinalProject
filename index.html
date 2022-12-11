@@ -86,16 +86,16 @@
             <h2>Users</h2>
             <div class="row colors"></div>
             <div class="row labels" id="filters">
-                <div class="label">1m</div>
-                <div class="label">5m</div>
+                <div class="label">10m</div>
                 <div class="label">20m</div>
-                <div class="label">50m</div>
-                <div class="label">150m</div>
-                <div class="label">200m+</div>
+                <div class="label">200m</div>
+                <div class="label">300m</div>
+                <div class="label">400m</div>
+                <div class="label">400m+</div>
             </div>
         </div>
         <div class="session">
-            <h2>Year:<label id="active-year">2000</label></h2>
+            <h2>Year:<label id="active-year"> 2000</label></h2>
             <input id="slider" class="row" type="range" min="2000" max="2020" step="1" value="1" />
         </div>
     </div>
@@ -129,15 +129,15 @@
                             'step',
                             ['get', 'num_InternetUser'],
                             '#78C0E0',
-                            1000000,
+                            10000000,
                             '#449DD1',
-                            5000000,
-                            '#192BC2',
                             20000000,
+                            '#192BC2',
+                            200000000,
                             '#150578',
-                            50000000,
+                            300000000,
                             '#08083D',
-                            150000000,
+                            400000000,
                             '#ffffff'
 
                         ],
@@ -150,17 +150,18 @@
                 // update hour filter when the slider is dragged
                 document.getElementById('slider').addEventListener('input', (event) => {
                     const year = event.target.value;
+                    const Year = parseInt(year)
                     console.log("year: " + year);
 
                     // update the map
-                    filterYear = ['==', ['string', ['get', 'year']], year];
+                    filterYear = ['==', ['number', ['get', 'year']], Year];
                     map.setFilter('num_InternetUser', ['all', filterYear]);
 
                     const yearUpdate = year % 2000 ? year : 2000;
                     console.log("yearUpdate: "+yearUpdate);
 
                     // update text in the UI
-                    document.getElementById('active-year').innerText = yearUpdate;
+                    document.getElementById('active-year').innerText = " " + yearUpdate;
                 });
             });
         };
