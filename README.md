@@ -32,7 +32,8 @@ Applied Web Services
 - Github: Used for hosting our web application and uploading our files for collaboration
 - Basemap: Used alongside Mapbox to create the basemaps seen in our web application
 - Geo Data Merger: Used for combining Geojson files with CSV data files to assign properties to objects (https://funkeinteraktiv.github.io/geo-data-merger/).
-
+<br>
+<br>
 
 Acklowledgements:
 We would like to acklowledge that this web application was created as a project for the University of Washington GEOG 495: Web GIS class instructed by professor Bo Zhao. The authors of this web application are Rae Ouyang, Omar Romero, and Ethan Liu.
