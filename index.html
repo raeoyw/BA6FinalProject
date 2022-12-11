@@ -56,12 +56,12 @@
 
         .colors {
             background: linear-gradient(to right,
-                #2dc4b2,
-                #3bb3c3,
-                #669ec4,
-                #8b88b6,
-                #a2719b,
-                #aa5e79);
+                #78C0E0,
+                #449DD1,
+                #192BC2,
+                #150578,
+                #08083D,
+                #000000);
             margin-bottom: 5px;
         }
 
@@ -96,7 +96,7 @@
         </div>
         <div class="session">
             <h2>Year:<label id="active-year">2000</label></h2>
-            <input id="slider" class="row" type="range" min="1" max="21" step="1" value="1" />
+            <input id="slider" class="row" type="range" min="2000" max="2020" step="1" value="1" />
         </div>
     </div>
     <script>
@@ -153,44 +153,15 @@
                     console.log("year: " + year);
 
                     // update the map
-                    filterHour = ['==', ['number', ['get', 'Hour']], year];
-                    map.setFilter('numInternetUser', ['all', filterHour]);
+                    filterYear = ['==', ['string', ['get', 'year']], year];
+                    map.setFilter('num_InternetUser', ['all', filterYear]);
 
                     const yearUpdate = year % 2000 ? year : 2000;
-                    console.log(hour12);
+                    console.log("yearUpdate: "+yearUpdate);
 
                     // update text in the UI
-                    document.getElementById('active-hour').innerText = yearUpdate;
+                    document.getElementById('active-year').innerText = yearUpdate;
                 });
-
-                document
-                    .getElementById('filters')
-                    .addEventListener('change', (event) => {
-                        const day = event.target.value;
-                        // update the map filter
-                        if (day === 'all') {
-                            filterDay = ['!=', ['string', ['get', 'Day']], 'placeholder'];
-                        } else if (day === 'weekday') {
-                            filterDay = [
-                                'match',
-                                ['get', 'Day'],
-                                ['Sat', 'Sun'],
-                                false,
-                                true
-                            ];
-                        } else if (day === 'weekend') {
-                            filterDay = [
-                                'match',
-                                ['get', 'Day'],
-                                ['Sat', 'Sun'],
-                                true,
-                                false
-                            ];
-                        } else {
-                            console.error('error');
-                        }
-                        map.setFilter('collisions', ['all', filterHour, filterDay]);
-                    });
             });
         };
         geojsonFetch();
