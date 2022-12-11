@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>Internet Users within Each Country's Population Over Time</title>
+    <title>Internet Users within North Population Over Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css" rel="stylesheet" />
@@ -40,7 +40,7 @@
         #console {
             position: absolute;
             margin: 10px;
-            width: 240px;
+            width: 300px;
             background-color: white;
             padding: 10px 20px;
         }
@@ -76,7 +76,7 @@
 <body>
     <div id="map"></div>
     <div id="console">
-        <h1>Internet Users Over Time</h1>
+        <h1>Internet Users in North America Over Time</h1>
         <p>
             Data:
             <a href="https://ourworldindata.org/internet">Share of population using the internet</a>
@@ -86,17 +86,17 @@
             <h2>Users</h2>
             <div class="row colors"></div>
             <div class="row labels" id="filters">
-                <div class="label">0</div>
-                <div class="label">1</div>
-                <div class="label">2</div>
-                <div class="label">3</div>
-                <div class="label">4</div>
-                <div class="label">5+</div>
+                <div class="label">1m</div>
+                <div class="label">5m</div>
+                <div class="label">20m</div>
+                <div class="label">50m</div>
+                <div class="label">150m</div>
+                <div class="label">200m+</div>
             </div>
         </div>
         <div class="session">
             <h2>Year:<label id="active-year">2000</label></h2>
-            <input id="slider" class="row" type="range" min="1" max="21" step="1" value="12" />
+            <input id="slider" class="row" type="range" min="1" max="21" step="1" value="1" />
         </div>
     </div>
     <script>
@@ -111,42 +111,40 @@
 
         async function geojsonFetch() {
             let response, stores;
-            response = await fetch('assets/northAmerica.geojson');
-            collisions = await response.json()
+            response = await fetch('assets/northAmericaData.geojson');
+            numUser = await response.json()
 
             map.on('load', () => {
-                let filterHour = ['==', ['number', ['get', 'Year']], 1990];
-                let filterDay = ['!=', ['string', ['get', 'Day']], 'placeholder'];
+                let filterYear = ['==', ['number', ['get', 'year']], 2000];
 
                 map.addLayer({
-                    id: 'collisions',
-                    type: 'circle',
+                    id: 'num_InternetUser',
+                    type: 'fill',
                     source: {
                         type: 'geojson',
-                        data: collisions // replace this with the url of your own geojson
+                        data: numUser // replace this with the url of your own geojson
                     },
                     paint: {
-                        'circle-radius': [
-                            'interpolate',
-                            ['linear'],
-                            ['number', ['get', 'Casualty']],
-                            0,  4,
-                            5,  24
+                        'fill-color': [
+                            'step',
+                            ['get', 'num_InternetUser'],
+                            '#78C0E0',
+                            1000000,
+                            '#449DD1',
+                            5000000,
+                            '#192BC2',
+                            20000000,
+                            '#150578',
+                            50000000,
+                            '#08083D',
+                            150000000,
+                            '#ffffff'
+
                         ],
-                        'circle-color': [
-                            'interpolate',
-                            ['linear'],
-                            ['number', ['get', 'Casualty']],
-                            0, '#2DC4B2',
-                            1,  '#3BB3C3',
-                            2,  '#669EC4',
-                            3,  '#8B88B6',
-                            4,  '#A2719B',
-                            5,  '#AA5E79'
-                        ],
-                        'circle-opacity': 0.8
+                        'fill-outline-color': '#BBBBBB',
+                        'fill-opacity': 0.7,
                     },
-                    'filter': ['all', filterHour, filterDay]
+                    'filter': ['all', filterYear]
                 });
 
                 // update hour filter when the slider is dragged
@@ -156,7 +154,7 @@
 
                     // update the map
                     filterHour = ['==', ['number', ['get', 'Hour']], year];
-                    map.setFilter('collisions', ['all', filterHour, filterDay]);
+                    map.setFilter('numInternetUser', ['all', filterHour]);
 
                     const yearUpdate = year % 2000 ? year : 2000;
                     console.log(hour12);
