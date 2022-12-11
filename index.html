@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Internet Users within Each Country's Population Over Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
@@ -80,12 +80,12 @@
         <p>
             Data:
             <a href="https://ourworldindata.org/internet">Share of population using the internet</a>
-            since 1990.
+            since 2000.
         </p>
         <div class="session">
             <h2>Users</h2>
             <div class="row colors"></div>
-            <div class="row labels">
+            <div class="row labels" id="filters">
                 <div class="label">0</div>
                 <div class="label">1</div>
                 <div class="label">2</div>
@@ -95,8 +95,8 @@
             </div>
         </div>
         <div class="session">
-            <h2>Year: <label id="active-year">1990</label></h2>
-            <input id="slider" class="row" type="range" min="1" max="30" step="1" value="12" />
+            <h2>Year:<label id="active-year">2000</label></h2>
+            <input id="slider" class="row" type="range" min="1" max="21" step="1" value="12" />
         </div>
     </div>
     <script>
@@ -105,17 +105,14 @@
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/light-v10',
-            center: [0, 0],
-            zoom: 1
+            center: [-110, 40],
+            zoom: 3
         });
 
-
         async function geojsonFetch() {
-
             let response, stores;
-            response = await fetch('assets/collisions1601.geojson');
+            response = await fetch('assets/northAmerica.geojson');
             collisions = await response.json()
-
 
             map.on('load', () => {
                 let filterHour = ['==', ['number', ['get', 'Year']], 1990];
@@ -154,17 +151,18 @@
 
                 // update hour filter when the slider is dragged
                 document.getElementById('slider').addEventListener('input', (event) => {
-                    const hour = parseInt(event.target.value);
+                    const year = event.target.value;
+                    console.log("year: " + year);
+
                     // update the map
-                    filterHour = ['==', ['number', ['get', 'Hour']], hour];
+                    filterHour = ['==', ['number', ['get', 'Hour']], year];
                     map.setFilter('collisions', ['all', filterHour, filterDay]);
 
-                    // converting 0-23 hour to AMPM format
-                    const ampm = hour >= 12 ? 'PM' : 'AM';
-                    const hour12 = hour % 12 ? hour % 12 : 12;
+                    const yearUpdate = year % 2000 ? year : 2000;
+                    console.log(hour12);
 
                     // update text in the UI
-                    document.getElementById('active-hour').innerText = hour12 + ampm;
+                    document.getElementById('active-hour').innerText = yearUpdate;
                 });
 
                 document
