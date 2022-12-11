@@ -5,3 +5,7 @@ An interactive web application which shows a choropleth map of countries in Nort
 
 Project Goal: The goal of this application was to illustrate how relatvely recently the internet has integrated into society to become a standard of everyday life. Using the time slider, the user is able to see how the number of internet users in North America has grown exponentially across just two decades. The user is also able to see that the US has been one of the quickest countries to adopt the internet, and that this standard of internet access is not universal, and there are disparities of internet access between countries, even just within this continent.
 
+<img width="1422" alt="image" src="https://user-images.githubusercontent.com/115133002/206929481-3d971b58-c4a0-47f5-85e2-455717d48343.png">
+
+<img width="1427" alt="image" src="https://user-images.githubusercontent.com/115133002/206929506-7835febf-7894-4abc-bfcc-8a81e715e8ee.png">
+
