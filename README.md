@@ -14,9 +14,9 @@ We have met several difficulties when building the map of this project. The firs
 Web Application link: https://raeoyw.github.io/BA6FinalProject/index.html
 
 Screenshots:
-<img width="1422" alt="image" src="https://user-images.githubusercontent.com/115133002/206929481-3d971b58-c4a0-47f5-85e2-455717d48343.png">
+<img width="1422" alt="image" src="assets/2000users.png">
 
-<img width="1427" alt="image" src="https://user-images.githubusercontent.com/115133002/206929506-7835febf-7894-4abc-bfcc-8a81e715e8ee.png">
+<img width="1427" alt="image" src="assets/2020users.png">
 <br>
 <br>
 Main functions:
@@ -45,4 +45,3 @@ Applied Web Services
 
 Acklowledgements:
 We would like to acklowledge that this web application was created as a project for the University of Washington GEOG 495: Web GIS class instructed by professor Bo Zhao. The authors of this web application are Rae Ouyang, Omar Romero, and Ethan Liu.
-
