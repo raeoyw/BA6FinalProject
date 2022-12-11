@@ -56,12 +56,12 @@
 
         .colors {
             background: linear-gradient(to right,
-                #EEAAFF,
-                #FF88FF,
-                #FF66F2,
-                #FF44C8,
-                #FF2293,
-                #FF0353);
+                #ffe0ff,
+                #ffc3fc,
+                #ffa5f7,
+                #ff83f0,
+                #ff5ae8,
+                #ff00dd);
             margin-bottom: 5px;
         }
 
@@ -88,8 +88,8 @@
             <div class="row labels" id="filters">
                 <div class="label">10m</div>
                 <div class="label">20m</div>
-                <div class="label">200m</div>
-                <div class="label">300m</div>
+                <div class="label">100m</div>
+                <div class="label">250m</div>
                 <div class="label">400m</div>
                 <div class="label">400m+</div>
             </div>
@@ -104,7 +104,7 @@
             'pk.eyJ1Ijoicm9tZXJvNSIsImEiOiJjbGJqdTY3aWMxNnZsM3FvZ3JubmptcmJkIn0.9SjXwoqawNWhHKF2Tb9wwQ';
         const map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/romero5/clbjvown7000s14p0mii9rb4s',
+            style: 'mapbox://styles/romero5/clbjx63sf000t14np1hbo89yu',
             center: [-110, 60],
             zoom: 2
         });
@@ -128,17 +128,17 @@
                         'fill-color': [
                             'step',
                             ['get', 'num_InternetUser'],
-                            '#EEAAFF',
+                            '#ffe0ff',
                             10000000,
-                            '#FF88FF',
+                            '#ffc3fc',
                             20000000,
-                            '#FF66F2',
-                            200000000,
-                            '#FF44C8',
-                            300000000,
-                            '#FF2293',
+                            '#ffa5f7',
+                            100000000,
+                            '#ff83f0',
+                            250000000,
+                            '#ff5ae8',
                             400000000,
-                            '#FF0353'
+                            '#ff00dd'
 
                         ],
                         'fill-outline-color': '#BBBBBB',
