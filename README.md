@@ -14,9 +14,9 @@ We have met several difficulties when building the map of this project. The firs
 Web Application link: https://raeoyw.github.io/BA6FinalProject/index.html
 
 Screenshots:
-<img width="1422" alt="image" src="assets/2000users.png">
+<img width="1422" alt="image" src="img/2000users.png">
 
-<img width="1427" alt="image" src="assets/2020users.png">
+<img width="1427" alt="image" src="img/2020users.png">
 <br>
 <br>
 Main functions:
