@@ -20,4 +20,17 @@ The user is able to zoom and pan around the map, due to the use of map box, and 
 data sources:
 Data for the number of internet users by country over time: https://ourworldindata.org/internet
 Data for Geojson geometry file: https://geojson-maps.ash.ms/
+<br>
+<br>
+Applied Libraries:
+- Mapbox
+<br>
+<br>
+Applied Web Services
+- Github
+- Basemap
+- Geo Data Merger (https://funkeinteraktiv.github.io/geo-data-merger/)
+
+Acklowledgements:
+We would like to acklowledge that this web application was created as a project for the University of Washington GEOG 495: Web GIS class instructed by professor Bo Zhao. The authors of this web application are Rae Ouyang, Omar Romero, and Ethan Liu.
 
