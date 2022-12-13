@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>Internet Users within North Population Over Time</title>
+    <title>Population of Internet Users within North America Over Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.11.1/mapbox-gl.js"></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.11.1/mapbox-gl.css" rel="stylesheet" />
@@ -76,14 +76,14 @@
 <body>
     <div id="map"></div>
     <div id="console">
-        <h1>Internet Users in North America Over Time</h1>
+        <h1>Population of Internet Users in North America Over Time</h1>
         <p>
             Data:
             <a href="https://ourworldindata.org/internet">Number of internet users</a>
-            since 2000.
+            by Max Roser, Hannah Ritchie and Esteban Ortiz-Ospina
         </p>
         <div class="session">
-            <h2>Users</h2>
+            <h2>Users (m=million)</h2>
             <div class="row colors"></div>
             <div class="row labels" id="filters">
                 <div class="label">10m</div>
@@ -122,7 +122,7 @@
                     type: 'fill',
                     source: {
                         type: 'geojson',
-                        data: numUser // replace this with the url of your own geojson
+                        data: numUser
                     },
                     paint: {
                         'fill-color': [
@@ -147,24 +147,21 @@
                     'filter': ['all', filterYear]
                 });
 
-                // update hour filter when the slider is dragged
                 document.getElementById('slider').addEventListener('input', (event) => {
-                    const year = event.target.value;
-                    const Year = parseInt(year)
-                    console.log("year: " + year);
+                    const year = parseInt(event.target.value);
+                    //console.log("year: " + year);
 
-                    // update the map
-                    filterYear = ['==', ['number', ['get', 'year']], Year];
+                    filterYear = ['==', ['number', ['get', 'year']], year];
                     map.setFilter('num_InternetUser', ['all', filterYear]);
 
                     const yearUpdate = year % 2000 ? year : 2000;
-                    console.log("yearUpdate: "+yearUpdate);
+                    //console.log("yearUpdate: " + yearUpdate);
 
-                    // update text in the UI
                     document.getElementById('active-year').innerText = " " + yearUpdate;
                 });
             });
         };
+
         geojsonFetch();
     </script>
 </body>
