@@ -14,12 +14,12 @@ The second difficulty we met was how to define a new filter function and a new c
 <br>
 <br>
 ### Web Application link: <br>
-https://raeoyw.github.io/BA6FinalProject/
+[BA6FinalProject](https://raeoyw.github.io/BA6FinalProject/)
 <br>
 <br>
 ### Screenshots:
-<img width="1422" alt="image" src="img/2000users.png">
-<img width="1427" alt="image" src="img/2020users.png">
+![](img/2000users.png)
+![](img/2020users.png)
 <br>
 <br>
 ### Main Functions: <br>
@@ -27,7 +27,7 @@ The user is able to zoom and pan around the map due to the use of map box, and a
 <br>
 <br>
 ### Data Sources: <br>
-Data for the number of internet users by country over time: https://ourworldindata.org/internet
+Data for the number of internet users by country over time: https://ourworldindata.org/internet <br>
 Data for Geojson geometry file: https://geojson-maps.ash.ms/
 <br>
 <br>
