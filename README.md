@@ -40,7 +40,7 @@ Data for Geojson geometry file: https://geojson-maps.ash.ms/
 <br>
 - Basemap: Used alongside Mapbox to create the basemaps seen in our web application
 <br>
-- Geo Data Merger: Used for combining Geojson files with CSV data files to assign properties to objects (https://funkeinteraktiv.github.io/geo-data-merger/).
+- Geo Data Merger: Used for combining Geojson files with CSV data files to assign properties to objects ([Geo Data Merger](https://funkeinteraktiv.github.io/geo-data-merger/)).
 <br>
 <br>
 ### Acklowledgements: <br>
