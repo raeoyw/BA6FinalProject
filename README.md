@@ -32,16 +32,13 @@ Data for Geojson geometry file: https://geojson-maps.ash.ms/
 <br>
 <br>
 ### Applied Libraries: <br>
-- Mapbox: A map server which offers a wide selection of interactive base maps that can be loaded into web applications using an access token for geographic visualizations.
+Mapbox: A map server which offers a wide selection of interactive base maps that can be loaded into web applications using an access token for geographic visualizations.
 <br>
 <br>
 ### Applied Web Services <br>
 - Github: Used for hosting our web application and uploading our files for collaboration
-<br>
 - Basemap: Used alongside Mapbox to create the basemaps seen in our web application
-<br>
-- Geo Data Merger: Used for combining Geojson files with CSV data files to assign properties to objects ([Geo Data Merger](https://funkeinteraktiv.github.io/geo-data-merger/)).
-<br>
-<br>
+- [Geo Data Merger](https://funkeinteraktiv.github.io/geo-data-merger/): Used for combining Geojson files with CSV data files to assign properties to objects.
+<br><br>
 ### Acklowledgements: <br>
 We would like to acklowledge that this web application was created as a project for the University of Washington GEOG 495: Web GIS class instructed by professor Bo Zhao. The authors of this web application are Rae Ouyang, Omar Romero, and Ethan Liu.
